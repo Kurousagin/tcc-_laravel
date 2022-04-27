@@ -10,7 +10,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <div>
-                        <form action="{{route ('regis_product')}}" method="DELETE">
+                        <form action="{{route ('deletar_product', ['id' => $produto->id])}} " method="POST">
                             @csrf
                             <div>
 

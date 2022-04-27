@@ -1,3 +1,5 @@
+@extends('layouts.bot')
+
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -11,29 +13,35 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <div>
 
-                            <div>
 
-                                <input type="text" placeholder="nome" name="nome" value="{{ $produto->nome }}" />
-                            </div>
+                        <table id="listar" class="table table-dark table-striped">
+                            <thead>
+                                <div>
+                                    <th>Código </th>
+                                    <th>Produto</th>
+                                    <th>Ações</th>
 
-                            <div>
+                                </div>
+                            </thead>
+                            <tbody>
+                                @foreach ($produto as $produto)
+                                <tr>
+                                    <td>{{$produto->nome}} </td>
+                                    <td>{{$produto->codigo}} </td>
+                                    <td>
+                                        <a href=""></a>
+                                        <a href=""></a>
+                                    </td>
 
-                                <input type="text" placeholder="Código" name="codigo" value="{{ $produto->codigo}}" />
+                                </tr>
 
-                            </div>
-
-                            <div>
-                                <input type="text" placeholder="Valor" name="valor" value="{{ $produto->valor}}" />
-                            </div>
-
-                            <div>
-                                <input type="number" placeholder="quantidade" name="quantidade" value="{{ $produto->quantidade}}" />
-                            </div>
+                                @endforeach
+                            </tbody>
 
 
-                            <div>
-                                <button>Salvar</button>
-                            </div>
+
+
+                        </table>
 
 
 

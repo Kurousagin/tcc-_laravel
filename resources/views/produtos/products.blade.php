@@ -10,6 +10,17 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <div>
+                        <div id="search">
+                            <h1>Busca de peças</h1>
+                            <form action="{{route ('procurar_product')}}" method="GET">
+                            <input type="text" id="search " name="search" placeholder="procure">
+                            </form>
+
+
+                        </div><br/>
+
+
+
                         <form action="{{route ('regis_product')}}" method="POST">
                             @csrf
                             <div>
@@ -38,7 +49,12 @@
 
 
 
+
                         </form>
+
+
+
+
                     </div>
                 </div>
             </div>

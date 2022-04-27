@@ -12,8 +12,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+use Illuminate\Http\Request;
 use App\http\Controllers\CadProduct;
+use App\Models\Produto;
 
 
 Route::get('/', function () {
@@ -30,13 +31,11 @@ Route::get('/financeiro', function () {
     return view('finance.finance');
 })->middleware(['auth'])->name('finance');
 
-Route::get('/produtos/new', [CadProduct::class, "create"])->middleware(['auth'])->name('product');
-Route::post('/produtos/new', [CadProduct::class, "store"])->middleware(['auth'])->name('regis_product');
+Route::get('/produtos', [CadProduct::class, "create"])->middleware(['auth'])->name('product');
+Route::post('/produtos', [CadProduct::class, "store"])->middleware(['auth'])->name('regis_product');
 Route::get('/produtos/ver/{id}', [CadProduct::class, "show"]);
-Route::get('/produtos/editar/{id}', [CadProduct::class, "edit"]);
-Route::post('/produtos/editar/{id}', [CadProduct::class, "update"])->middleware(['auth'])->name('alterar_product');
-Route::get('/produtos/excluir/{id}', [CadProduct::class, "delete"]);
-Route::delete('/produtos/excluir/{id}', [CadProduct::class, "delete"]);
+Route::get('/produtos/search', [CadProduct::class, "search"])->middleware(['auth'])->name('procurar_product');
+
 
 
 
